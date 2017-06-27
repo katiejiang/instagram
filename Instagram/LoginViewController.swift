@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     @IBAction func onLogin(_ sender: Any) {
         PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) { (user: PFUser?, error: Error?) in
             if user != nil {
-                self.shouldPerformSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
     }
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
         newUser.password = passwordField.text
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if success {
-                self.shouldPerformSegue(withIdentifier: "loginSegue", sender: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
                 print(error?.localizedDescription)
             }
