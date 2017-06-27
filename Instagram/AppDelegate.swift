@@ -26,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        if PFUser.current() != nil {
+            print("Welcome back!")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let feedViewController = storyboard.instantiateViewController(withIdentifier: "FeedViewController")
+            window?.rootViewController = feedViewController
+        }
+        
         return true
     }
 
