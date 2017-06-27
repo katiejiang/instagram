@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var photoImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +51,13 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
 
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+//        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Do something with the images
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            photoImageView.image = editedImage
+        }
+        
         
         // Dismiss the UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
