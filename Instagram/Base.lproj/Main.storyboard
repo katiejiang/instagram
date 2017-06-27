@@ -77,11 +77,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUe-zS-17Y">
-                                <rect key="frame" x="160" y="318" width="54" height="30"/>
+                                <rect key="frame" x="160" y="236" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
                                     <action selector="loadCamera:" destination="f6q-ch-8Bm" eventType="touchUpInside" id="IhQ-qL-uTD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-F0-Mfb">
+                                <rect key="frame" x="146" y="289" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Camera Roll"/>
+                                <connections>
+                                    <action selector="loadCameraRoll:" destination="f6q-ch-8Bm" eventType="touchUpInside" id="kWJ-sQ-HbN"/>
                                 </connections>
                             </button>
                         </subviews>

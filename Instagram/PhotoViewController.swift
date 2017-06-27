@@ -21,12 +21,19 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         vc.sourceType = UIImagePickerControllerSourceType.camera
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            print("Camera is available 📸")
             vc.sourceType = .camera
         } else {
-            print("Camera 🚫 available so we will use photo library instead")
             vc.sourceType = .photoLibrary
         }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func loadCameraRoll(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(vc, animated: true, completion: nil)
     }
