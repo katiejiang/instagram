@@ -10,8 +10,8 @@
 		102D61A4D3546428FC0A8AAC /* Pods_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEBC6815B44701110CD930F /* Pods_InstagramUITests.framework */; };
 		92A2CCB2B37A7D6451FFD705 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B5F39F043EB0CB3AC67A4 /* Pods_Instagram.framework */; };
 		DF78DEBB1F03021800AC7505 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEBA1F03021800AC7505 /* FeedViewController.swift */; };
-		DF78DEBD1F0306B100AC7505 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEBC1F0306B100AC7505 /* PhotoViewController.swift */; };
 		DF78DEC21F0310DC00AC7505 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEC11F0310DC00AC7505 /* Post.swift */; };
+		DF78DEC41F031EDD00AC7505 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEC31F031EDD00AC7505 /* NewPostViewController.swift */; };
 		DF90B8B21F02F86000E3EA0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90B8B11F02F86000E3EA0C /* AppDelegate.swift */; };
 		DF90B8B71F02F86000E3EA0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF90B8B51F02F86000E3EA0C /* Main.storyboard */; };
 		DF90B8B91F02F86000E3EA0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF90B8B81F02F86000E3EA0C /* Assets.xcassets */; };
@@ -48,8 +48,8 @@
 		509900D7045ED8F61AB227DC /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33D8FE20196C738942B4AE2 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		DF78DEBA1F03021800AC7505 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		DF78DEBC1F0306B100AC7505 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		DF78DEC11F0310DC00AC7505 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DF78DEC31F031EDD00AC7505 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		DF90B8AE1F02F85F00E3EA0C /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF90B8B11F02F86000E3EA0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF90B8B61F02F86000E3EA0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				DF90B8B11F02F86000E3EA0C /* AppDelegate.swift */,
 				DF78DEC11F0310DC00AC7505 /* Post.swift */,
 				DF90B8B51F02F86000E3EA0C /* Main.storyboard */,
-				DF78DEBC1F0306B100AC7505 /* PhotoViewController.swift */,
+				DF78DEC31F031EDD00AC7505 /* NewPostViewController.swift */,
 				DF90B8E11F02FD7C00E3EA0C /* LoginViewController.swift */,
 				DF90B8B81F02F86000E3EA0C /* Assets.xcassets */,
 				DF90B8BA1F02F86000E3EA0C /* LaunchScreen.storyboard */,
@@ -459,10 +459,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF90B8E21F02FD7C00E3EA0C /* LoginViewController.swift in Sources */,
-				DF78DEBD1F0306B100AC7505 /* PhotoViewController.swift in Sources */,
 				DF78DEBB1F03021800AC7505 /* FeedViewController.swift in Sources */,
 				DF90B8B21F02F86000E3EA0C /* AppDelegate.swift in Sources */,
 				DF78DEC21F0310DC00AC7505 /* Post.swift in Sources */,
+				DF78DEC41F031EDD00AC7505 /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

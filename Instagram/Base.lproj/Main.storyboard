@@ -57,55 +57,86 @@
                     <connections>
                         <outlet property="passwordField" destination="vYh-4O-7Ly" id="N1l-h2-Vz1"/>
                         <outlet property="usernameField" destination="6Er-tz-NiA" id="IVC-Fl-VLj"/>
-                        <segue destination="f6q-ch-8Bm" kind="presentation" identifier="loginSegue" id="kUM-Tt-FdO"/>
+                        <segue destination="HeT-XP-DpA" kind="show" identifier="loginSegue" id="12N-YK-uXn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbQ-Y9-3b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72.799999999999997" y="64.31784107946028"/>
+            <point key="canvasLocation" x="-60" y="63"/>
         </scene>
-        <!--Photo View Controller-->
-        <scene sceneID="rrI-sn-X9p">
+        <!--New Post View Controller-->
+        <scene sceneID="6Y5-Fa-DwF">
             <objects>
-                <viewController storyboardIdentifier="PhotoViewController" id="f6q-ch-8Bm" customClass="PhotoViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewPostViewController" id="HeT-XP-DpA" customClass="NewPostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mH7-zC-sAu"/>
-                        <viewControllerLayoutGuide type="bottom" id="riW-N0-Tyy"/>
+                        <viewControllerLayoutGuide type="top" id="aGF-4s-tJP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oy8-YS-1Bn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KId-7R-bAx">
+                    <view key="view" contentMode="scaleToFill" id="dCa-Uq-8P2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUe-zS-17Y">
-                                <rect key="frame" x="160" y="148" width="54" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-23-QdZ">
+                                <rect key="frame" x="0.0" y="54" width="376" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCU-HJ-OWF">
+                                <rect key="frame" x="9" y="20" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="HeT-XP-DpA" eventType="touchUpInside" id="8lM-Rj-z1o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFQ-WI-YNR">
+                                <rect key="frame" x="319" y="20" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-ob-fCT">
+                                <rect key="frame" x="214" y="567" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="onLoadPhotoLibrary:" destination="HeT-XP-DpA" eventType="touchUpInside" id="Ivc-KX-uHd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q6-B2-btC">
+                                <rect key="frame" x="71" y="567" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
-                                    <action selector="loadCamera:" destination="f6q-ch-8Bm" eventType="touchUpInside" id="IhQ-qL-uTD"/>
+                                    <action selector="onLoadCamera:" destination="HeT-XP-DpA" eventType="touchUpInside" id="VNZ-DH-SHf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-F0-Mfb">
-                                <rect key="frame" x="146" y="201" width="83" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnZ-jx-Xlg">
+                                <rect key="frame" x="16" y="437" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera Roll"/>
-                                <connections>
-                                    <action selector="loadCameraRoll:" destination="f6q-ch-8Bm" eventType="touchUpInside" id="kWJ-sQ-HbN"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xW-SW-RXu">
-                                <rect key="frame" x="67" y="262" width="240" height="230"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pH3-ja-O1Y" appends="YES" id="PDo-zP-Dqx"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="photoImageView" destination="0xW-SW-RXu" id="GSc-OZ-ulR"/>
+                        <outlet property="captionField" destination="tnZ-jx-Xlg" id="5WP-nD-MKh"/>
+                        <outlet property="photoImageView" destination="Bm8-23-QdZ" id="GQ8-2d-UWX"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6fy-Me-VbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mr-bQ-igy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pH3-ja-O1Y">
+                    <connections>
+                        <action selector="onTap:" destination="HeT-XP-DpA" id="amv-kv-ez4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="773.60000000000002" y="63.418290854572717"/>
+            <point key="canvasLocation" x="793" y="63"/>
         </scene>
     </scenes>
 </document>

@@ -50,4 +50,5 @@ class Post: NSObject {
         }
         return nil
     }
+    
 }

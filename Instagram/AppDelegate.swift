@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PFUser.current() != nil {
             print("Welcome back!")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let photoViewController = storyboard.instantiateViewController(withIdentifier: "PhotoViewController")
-            window?.rootViewController = photoViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "NewPostViewController")
+            window?.rootViewController = vc
         }
         
         return true
