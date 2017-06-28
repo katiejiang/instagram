@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PFUser.current() != nil {
             print("Welcome back!")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "NewPostViewController")
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeTabBarController")
             window?.rootViewController = vc
         }
         
