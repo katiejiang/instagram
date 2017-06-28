@@ -57,6 +57,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kar-KK-s8I" appends="YES" id="0gR-ax-kJR"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="vYh-4O-7Ly" id="N1l-h2-Vz1"/>
@@ -65,6 +69,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbQ-Y9-3b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kar-KK-s8I">
+                    <connections>
+                        <action selector="onTap:" destination="aP1-j3-q7q" id="CPq-M3-XGh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2094" y="63"/>
         </scene>
@@ -156,9 +165,16 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="v7c-6f-Lg9">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wHl-AC-h91"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wHl-AC-h91">
+                            <connections>
+                                <action selector="onLogout:" destination="i1w-mC-g3D" id="18P-id-6fv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="aP1-j3-q7q" kind="presentation" identifier="logoutSegue" id="gba-DM-COc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6I-ig-4N1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
