@@ -9,15 +9,23 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+    var posts : [PFObject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Collection View set up
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        updatePosts()
 
         // Make profile pic circular
         profileImageView.layer.borderWidth = 1
@@ -28,6 +36,30 @@ class ProfileViewController: UIViewController {
         
         // Set navigation controller title to current username
         self.navigationController?.navigationBar.topItem?.title = PFUser.current()?.username
+        
+        // Collection View Layout
+        flowLayout.minimumLineSpacing = 6
+        flowLayout.minimumInteritemSpacing = 6
+    }
+    
+    func updatePosts() {
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let totalWidth = collectionView.bounds.size.width
+        let numberOfCellsPerRow = 3
+        let dimension = CGFloat(Int(totalWidth) / numberOfCellsPerRow) - 4
+        return CGSize.init(width: dimension, height: dimension)
     }
 
     override func didReceiveMemoryWarning() {
