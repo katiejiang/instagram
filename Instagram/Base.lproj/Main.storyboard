@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idM-nC-oAq">
                                 <rect key="frame" x="97" y="552" width="38" height="30"/>
@@ -167,7 +167,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fQ3-f2-ti2">
-                                <rect key="frame" x="0.0" y="236" width="375" height="431"/>
+                                <rect key="frame" x="0.0" y="236" width="375" height="387"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v5w-HY-j11">
@@ -178,13 +178,21 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="ric-st-mgF" customClass="PhotoCell" customModule="Instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8VJ-MP-j65" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
-                                        <size key="customSize" width="125" height="125"/>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="8VJ-MP-j65" id="8hI-OF-Ycw"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -222,6 +230,7 @@
                     <connections>
                         <outlet property="bioLabel" destination="Mlz-St-BG9" id="SAj-CT-EuO"/>
                         <outlet property="collectionView" destination="fQ3-f2-ti2" id="xE1-4h-a5M"/>
+                        <outlet property="collectionViewLayout" destination="v5w-HY-j11" id="pJV-5P-W5T"/>
                         <outlet property="nameLabel" destination="QyG-Kn-xHw" id="HLP-ru-pA2"/>
                         <outlet property="profileImageView" destination="HlA-ot-FOo" id="2vc-Kp-BaU"/>
                         <segue destination="aP1-j3-q7q" kind="presentation" identifier="logoutSegue" id="gba-DM-COc"/>
