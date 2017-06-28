@@ -19,10 +19,15 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up Table View
         tableView.dataSource = self
         tableView.delegate = self
-        
         updatePosts()
+        
+        // Set up Refresh Control
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
     }
     
     func updatePosts() {
@@ -62,6 +67,11 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        updatePosts()
+        refreshControl.endRefreshing()
     }
     
 }
