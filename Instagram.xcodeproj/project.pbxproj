@@ -21,6 +21,7 @@
 		DF90B8C71F02F86000E3EA0C /* InstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90B8C61F02F86000E3EA0C /* InstagramTests.swift */; };
 		DF90B8D21F02F86000E3EA0C /* InstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90B8D11F02F86000E3EA0C /* InstagramUITests.swift */; };
 		DF90B8E21F02FD7C00E3EA0C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90B8E11F02FD7C00E3EA0C /* LoginViewController.swift */; };
+		DFDDE6351F04514200E3CA00 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDDE6341F04514200E3CA00 /* PhotoCell.swift */; };
 		EE7F580B4BFFBA44A4CCD1D3 /* Pods_InstagramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509900D7045ED8F61AB227DC /* Pods_InstagramTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		DF90B8D11F02F86000E3EA0C /* InstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUITests.swift; sourceTree = "<group>"; };
 		DF90B8D31F02F86000E3EA0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF90B8E11F02FD7C00E3EA0C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DFDDE6341F04514200E3CA00 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		EDEBC6815B44701110CD930F /* Pods_InstagramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF7EC837AF2FDB3A4E8569DC /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 				DF90B8BA1F02F86000E3EA0C /* LaunchScreen.storyboard */,
 				DF90B8BD1F02F86000E3EA0C /* Info.plist */,
 				DF87217C1F041A2600A88C8A /* PostCell.swift */,
+				DFDDE6341F04514200E3CA00 /* PhotoCell.swift */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				DF87217A1F04144700A88C8A /* ProfileViewController.swift in Sources */,
 				DF90B8E21F02FD7C00E3EA0C /* LoginViewController.swift in Sources */,
 				DF78DEBB1F03021800AC7505 /* FeedViewController.swift in Sources */,
+				DFDDE6351F04514200E3CA00 /* PhotoCell.swift in Sources */,
 				DF90B8B21F02F86000E3EA0C /* AppDelegate.swift in Sources */,
 				DF78DEC21F0310DC00AC7505 /* Post.swift in Sources */,
 				DF78DEC41F031EDD00AC7505 /* NewPostViewController.swift in Sources */,
