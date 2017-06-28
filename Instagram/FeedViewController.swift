@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import ParseUI
 
-class FeedViewController: UIViewController, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,8 +18,9 @@ class FeedViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
         
         updatePosts()
     }
@@ -50,16 +52,16 @@ class FeedViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         let post = posts[indexPath.row]
-        let author = post["author"] as? PFUser
-        
-        cell.usernameLabel.text = author?.username
-        cell.captionLabel.text = post["caption"] as? String
-        
+        cell.post = post
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
