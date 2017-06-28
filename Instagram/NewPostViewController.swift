@@ -15,7 +15,7 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var captionField: UITextField!
-    @IBOutlet weak var instructionsLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,6 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         if image != nil {
             photoImageView.image = image
             captionField.isHidden = false
-            instructionsLabel.isHidden = true
             dismiss(animated: true, completion: nil)
         }
     }
@@ -76,9 +75,5 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func onPressHidden(_ sender: Any) {
-        print("this isn't what we want :/")
     }
 }

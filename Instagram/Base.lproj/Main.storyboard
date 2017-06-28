@@ -115,7 +115,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Oi-3OT" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Oi-3OT" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="37" width="375" height="375"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,18 +192,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-23-QdZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-23-QdZ">
                                 <rect key="frame" x="0.0" y="64" width="376" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4j-Pd-qZ9">
-                                <rect key="frame" x="132" y="241" width="111" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCU-HJ-OWF">
                                 <rect key="frame" x="13" y="26" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -231,7 +224,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q6-B2-btC">
-                                <rect key="frame" x="71" y="567" width="54" height="30"/>
+                                <rect key="frame" x="75" y="567" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
@@ -261,7 +254,6 @@
                     </view>
                     <connections>
                         <outlet property="captionField" destination="tnZ-jx-Xlg" id="5WP-nD-MKh"/>
-                        <outlet property="instructionsLabel" destination="i4j-Pd-qZ9" id="LI1-um-fr5"/>
                         <outlet property="photoImageView" destination="Bm8-23-QdZ" id="GQ8-2d-UWX"/>
                     </connections>
                 </viewController>
@@ -278,7 +270,7 @@
         <scene sceneID="yJJ-Kk-lWc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dz1-WO-rBS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="home" id="8HY-Sv-Jey">
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="8HY-Sv-Jey">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -318,7 +310,7 @@
         <scene sceneID="1GJ-2N-Znx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ymx-xd-4H3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="user" id="kEr-Zj-FnP"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="kEr-Zj-FnP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Esb-s3-BPo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -335,8 +327,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="320" height="323"/>
-        <image name="home" width="32" height="32"/>
-        <image name="user" width="32" height="32"/>
+        <image name="background" width="640" height="647"/>
+        <image name="feed" width="25" height="25"/>
+        <image name="image_placeholder" width="375" height="375"/>
+        <image name="profile" width="25" height="25"/>
     </resources>
 </document>
