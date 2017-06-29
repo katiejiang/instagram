@@ -35,12 +35,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
         
-        // Set navigation controller title to current username
-        self.navigationController?.navigationBar.topItem?.title = user.username
-        
         // Collection View Layout
         flowLayout.minimumLineSpacing = 6
         flowLayout.minimumInteritemSpacing = 6
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Set navigation controller title to current username
+        self.navigationController?.navigationBar.topItem?.title = user.username
+        nameLabel.text = user["name"] as? String
+        bioLabel.text = user["bio"] as? String
     }
     
     func updatePosts() {
