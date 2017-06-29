@@ -15,7 +15,6 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var captionField: UITextField!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +28,21 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onSelectImage(_ sender: Any) {
+        let selectSourceAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.onLoadCamera(sender)
+        }
+        selectSourceAlert.addAction(cameraAction)
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            self.onLoadPhotoLibrary(sender)
+        }
+        selectSourceAlert.addAction(libraryAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        selectSourceAlert.addAction(cancelAction)
+        present(selectSourceAlert, animated: true)
     }
     
     @IBAction func onLoadCamera(_ sender: Any) {

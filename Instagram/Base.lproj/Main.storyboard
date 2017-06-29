@@ -523,22 +523,6 @@
                                     <action selector="onShare:" destination="HeT-XP-DpA" eventType="touchUpInside" id="37G-33-Atc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RT-ob-fCT">
-                                <rect key="frame" x="214" y="567" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Photo Library"/>
-                                <connections>
-                                    <action selector="onLoadPhotoLibrary:" destination="HeT-XP-DpA" eventType="touchUpInside" id="Ivc-KX-uHd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q6-B2-btC">
-                                <rect key="frame" x="75" y="567" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="onLoadCamera:" destination="HeT-XP-DpA" eventType="touchUpInside" id="VNZ-DH-SHf"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnZ-jx-Xlg">
                                 <rect key="frame" x="16" y="447" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -553,6 +537,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQw-sf-zUR">
+                                <rect key="frame" x="155" y="574" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="instagram_icon"/>
+                                <connections>
+                                    <action selector="onSelectImage:" destination="HeT-XP-DpA" eventType="touchUpInside" id="AKG-Fq-SUY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -640,12 +632,13 @@
         <image name="empty_like" width="64" height="64"/>
         <image name="feed" width="25" height="25"/>
         <image name="image_placeholder" width="375" height="375"/>
+        <image name="instagram_icon" width="200" height="200"/>
         <image name="name" width="38" height="38"/>
         <image name="profile" width="25" height="25"/>
         <image name="profile_placeholder" width="512" height="512"/>
         <image name="username" width="52" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R0d-66-EbR"/>
+        <segue reference="ezQ-pd-sWa"/>
     </inferredMetricsTieBreakers>
 </document>
