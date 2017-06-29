@@ -50,7 +50,7 @@ class PostDetailsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! ProfileViewController
-        vc.user = post["author"]!
+        vc.user = post["author"] as! PFUser
     }
 
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aP1-j3-q7q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aP1-j3-q7q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -223,7 +223,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="photoImageView" destination="8VJ-MP-j65" id="8hI-OF-Ycw"/>
-                                            <segue destination="WTb-6Q-dF7" kind="show" id="2uB-eu-LGO"/>
+                                            <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsSegue" id="2uB-eu-LGO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -247,7 +247,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit Profile"/>
                                 <connections>
-                                    <segue destination="CoG-zy-ih1" kind="presentation" id="y1Z-A1-1YZ"/>
+                                    <segue destination="CoG-zy-ih1" kind="presentation" identifier="updateProfileSegue" id="y1Z-A1-1YZ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcH-8q-Rrg">
@@ -264,10 +264,10 @@
                     <connections>
                         <outlet property="bioLabel" destination="Mlz-St-BG9" id="SAj-CT-EuO"/>
                         <outlet property="collectionView" destination="fQ3-f2-ti2" id="xE1-4h-a5M"/>
+                        <outlet property="editProfileButton" destination="bke-yt-ZVO" id="PGI-tn-dXK"/>
                         <outlet property="flowLayout" destination="v5w-HY-j11" id="8Lu-5k-Myr"/>
                         <outlet property="nameLabel" destination="QyG-Kn-xHw" id="HLP-ru-pA2"/>
                         <outlet property="profileImageView" destination="HlA-ot-FOo" id="2H0-jz-0bG"/>
-                        <segue destination="aP1-j3-q7q" kind="presentation" identifier="logoutSegue" id="gba-DM-COc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6I-ig-4N1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -435,16 +435,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OoX-7t-Gbc">
-                                <rect key="frame" x="163" y="577" width="48" height="30"/>
+                                <rect key="frame" x="156" y="570" width="63" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9g3-Kt-0sz">
-                                <rect key="frame" x="163" y="577" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="onLogout:" destination="CoG-zy-ih1" eventType="touchUpInside" id="Bol-I9-i7z"/>
+                                    <action selector="onLogout:" destination="CoG-zy-ih1" eventType="touchUpInside" id="L7P-ch-aQO"/>
+                                    <segue destination="aP1-j3-q7q" kind="presentation" id="k47-rw-zBW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -628,6 +625,6 @@
         <image name="username" width="52" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ezQ-pd-sWa"/>
+        <segue reference="BbB-Ek-MdJ"/>
     </inferredMetricsTieBreakers>
 </document>

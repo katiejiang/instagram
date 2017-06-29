@@ -12,7 +12,7 @@ import ParseUI
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-
+    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var profileImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
@@ -41,9 +41,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         flowLayout.minimumLineSpacing = 6
         flowLayout.minimumInteritemSpacing = 6
         
-        // Hide logout button if not profile doesn't match current user
+        // Hide edit profile button if not profile doesn't match current user
         if user != PFUser.current() {
-            logoutButton.hidden = true
+            editProfileButton.isHidden = true
         }
     }
     
@@ -98,11 +98,15 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! PhotoCell
-        let vc = segue.destination as! PostDetailsViewController
-        vc.post = cell.post
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
+        if segue.identifier == nil {
+            return
+        } else if segue.identifier == "detailsSegue" {
+            let cell = sender as! PhotoCell
+            let vc = segue.destination as! PostDetailsViewController
+            vc.post = cell.post
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
     }
 }
