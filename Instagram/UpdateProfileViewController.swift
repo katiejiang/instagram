@@ -39,11 +39,39 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func onChangeProfilePicture(_ sender: Any) {
+        let selectSourceAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.onLoadCamera(sender)
+        }
+        selectSourceAlert.addAction(cameraAction)
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            self.onLoadPhotoLibrary(sender)
+        }
+        selectSourceAlert.addAction(libraryAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        selectSourceAlert.addAction(cancelAction)
+        present(selectSourceAlert, animated: true)
+    }
+    
+    func onLoadCamera(_ sender: Any) {
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            onLoadPhotoLibrary(sender)
+        } else {
+            let vc = UIImagePickerController()
+            vc.delegate = self
+            vc.allowsEditing = true
+            vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func onLoadPhotoLibrary(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
-
+        
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -87,13 +115,23 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     }
 
     @IBAction func onLogout(_ sender: Any) {
-        PFUser.logOutInBackground { (error: Error?) in
-            if let error = error {
-                print(String(describing: error.localizedDescription))
-            } else {
-                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+        let logoutAlert = UIAlertController(title: nil, message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
+        
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (action) in
+            PFUser.logOutInBackground { (error: Error?) in
+                if let error = error {
+                    print(String(describing: error.localizedDescription))
+                } else {
+                    self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+                }
             }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        logoutAlert.addAction(logoutAction)
+        logoutAlert.addAction(cancelAction)
+        present(logoutAlert, animated: true)
+    
     }
     
     @IBAction func onCancel(_ sender: Any) {
