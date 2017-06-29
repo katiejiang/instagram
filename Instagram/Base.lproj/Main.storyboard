@@ -77,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="-2094" y="63"/>
         </scene>
-        <!--Instagram-->
+        <!--Feed View Controller-->
         <scene sceneID="Xqe-gO-amW">
             <objects>
                 <viewController storyboardIdentifier="FeedViewController" id="32A-YJ-zuD" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -168,7 +168,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Instagram" id="E52-qp-2Oe">
+                    <navigationItem key="navigationItem" id="E52-qp-2Oe">
                         <barButtonItem key="rightBarButtonItem" title="New Post" id="h8G-ZT-avj">
                             <connections>
                                 <segue destination="HeT-XP-DpA" kind="presentation" id="IAw-qU-xoa"/>
@@ -277,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="736.79999999999995" y="824.43778110944538"/>
         </scene>
-        <!--Post Details View Controller-->
+        <!--Photo-->
         <scene sceneID="vvb-AI-A2k">
             <objects>
-                <viewController storyboardIdentifier="PostDetailsViewController" id="WTb-6Q-dF7" customClass="PostDetailsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostDetailsViewController" title="Photo" id="WTb-6Q-dF7" customClass="PostDetailsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MOe-kM-RrT"/>
                         <viewControllerLayoutGuide type="bottom" id="6ic-Hk-BOQ"/>
@@ -342,6 +342,13 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fck-9h-w4J">
+                                <rect key="frame" x="164" y="30" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

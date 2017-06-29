@@ -24,6 +24,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         updatePosts()
         
+        // Set navigation bar title as instagram logo
+        let image = UIImage(named: "instagram_logo.png")
+        self.navigationItem.titleView = UIImageView(image: image)
+        
         // Set up Refresh Control
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
