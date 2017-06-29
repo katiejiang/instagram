@@ -10,6 +10,7 @@
 		102D61A4D3546428FC0A8AAC /* Pods_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDEBC6815B44701110CD930F /* Pods_InstagramUITests.framework */; };
 		92A2CCB2B37A7D6451FFD705 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050B5F39F043EB0CB3AC67A4 /* Pods_Instagram.framework */; };
 		DF5E75301F048148000440FC /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E752F1F048148000440FC /* UpdateProfileViewController.swift */; };
+		DF5E75321F057C8D000440FC /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E75311F057C8D000440FC /* PostDetailsViewController.swift */; };
 		DF78DEBB1F03021800AC7505 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEBA1F03021800AC7505 /* FeedViewController.swift */; };
 		DF78DEC21F0310DC00AC7505 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEC11F0310DC00AC7505 /* Post.swift */; };
 		DF78DEC41F031EDD00AC7505 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF78DEC31F031EDD00AC7505 /* NewPostViewController.swift */; };
@@ -52,6 +53,7 @@
 		509900D7045ED8F61AB227DC /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33D8FE20196C738942B4AE2 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		DF5E752F1F048148000440FC /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		DF5E75311F057C8D000440FC /* PostDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		DF78DEBA1F03021800AC7505 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DF78DEC11F0310DC00AC7505 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		DF78DEC31F031EDD00AC7505 /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				DF78DEBA1F03021800AC7505 /* FeedViewController.swift */,
 				DF8721791F04144700A88C8A /* ProfileViewController.swift */,
 				DF5E752F1F048148000440FC /* UpdateProfileViewController.swift */,
+				DF5E75311F057C8D000440FC /* PostDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				DF90B8B21F02F86000E3EA0C /* AppDelegate.swift in Sources */,
 				DF78DEC21F0310DC00AC7505 /* Post.swift in Sources */,
 				DF78DEC41F031EDD00AC7505 /* NewPostViewController.swift in Sources */,
+				DF5E75321F057C8D000440FC /* PostDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

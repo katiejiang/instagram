@@ -100,4 +100,13 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! PhotoCell
+        let vc = segue.destination as! PostDetailsViewController
+        vc.post = cell.post
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+    }
 }
