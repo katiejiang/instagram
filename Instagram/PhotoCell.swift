@@ -11,12 +11,12 @@ import Parse
 import ParseUI
 
 class PhotoCell: UICollectionViewCell {
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoImageView: PFImageView!
     
-//    var post: PFObject! = {
-//        didSet {
-//            self.photoImageView.file = self.post["media"] as? PFFile
-//            self.photoImageView.loadInBackground()
-//        }
-//    }
+    var post: PFObject! {
+        didSet {
+            self.photoImageView.file = self.post["media"] as? PFFile
+            self.photoImageView.loadInBackground()
+        }
+    }
 }

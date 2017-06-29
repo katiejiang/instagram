@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    var user : PFUser = PFUser.current()!
     var posts : [PFObject] = []
 
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         profileImageView.clipsToBounds = true
         
         // Set navigation controller title to current username
-        self.navigationController?.navigationBar.topItem?.title = PFUser.current()?.username
+        self.navigationController?.navigationBar.topItem?.title = user.username
         
         // Collection View Layout
         flowLayout.minimumLineSpacing = 6
@@ -43,15 +44,31 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func updatePosts() {
-        collectionView.reloadData()
+        // Construct query
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.whereKey("author", equalTo: user)
+        
+        // Fetch data asynchronously
+        query.findObjectsInBackground { (posts: [PFObject]?,
+            error: Error?) in
+            if let posts = posts {
+                self.posts = posts
+                self.collectionView.reloadData()
+            } else {
+                print(String(describing: error?.localizedDescription))
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        cell.post = posts[indexPath.row]
         return cell
     }
     
