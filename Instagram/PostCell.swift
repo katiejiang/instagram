@@ -12,7 +12,7 @@ import ParseUI
 
 class PostCell: UITableViewCell {
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var photoImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var profileImageView: PFImageView!
@@ -23,7 +23,7 @@ class PostCell: UITableViewCell {
             self.photoImageView.file = post["media"] as? PFFile
             self.photoImageView.loadInBackground()
             let author = post["author"] as? PFUser
-            self.usernameLabel.text = author?["username"] as? String
+            self.usernameButton.setTitle(author?["username"] as? String, for: UIControlState.normal)
             self.captionLabel.text = post["caption"] as? String
             self.profileImageView.file = author?["profilePicture"] as? PFFile
             self.profileImageView.loadInBackground()

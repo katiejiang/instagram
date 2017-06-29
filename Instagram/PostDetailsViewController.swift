@@ -12,8 +12,8 @@ import ParseUI
 
 class PostDetailsViewController: UIViewController {
     
+    @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var profileImageView: PFImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var photoImageView: PFImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
@@ -28,7 +28,7 @@ class PostDetailsViewController: UIViewController {
         self.photoImageView.file = post["media"] as? PFFile
         self.photoImageView.loadInBackground()
         let author = post["author"] as? PFUser
-        self.usernameLabel.text = author?["username"] as? String
+        self.usernameButton.setTitle(author?["username"] as? String, for: UIControlState.normal)
         self.captionLabel.text = post["caption"] as? String
         self.profileImageView.file = author?["profilePicture"] as? PFFile
         self.profileImageView.loadInBackground()
@@ -46,6 +46,11 @@ class PostDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ProfileViewController
+        vc.user = post["author"]!
     }
 
 }
