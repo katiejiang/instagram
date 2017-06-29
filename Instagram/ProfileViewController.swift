@@ -8,10 +8,11 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -45,6 +46,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         self.navigationController?.navigationBar.topItem?.title = user.username
         nameLabel.text = user["name"] as? String
         bioLabel.text = user["bio"] as? String
+        profileImageView.file = user["profilePicture"] as? PFFile
+        profileImageView.loadInBackground()
     }
     
     func updatePosts() {

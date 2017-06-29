@@ -162,7 +162,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HlA-ot-FOo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HlA-ot-FOo" customClass="PFImageView">
                                 <rect key="frame" x="28" y="96" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -240,7 +240,7 @@
                         <outlet property="collectionView" destination="fQ3-f2-ti2" id="xE1-4h-a5M"/>
                         <outlet property="flowLayout" destination="v5w-HY-j11" id="8Lu-5k-Myr"/>
                         <outlet property="nameLabel" destination="QyG-Kn-xHw" id="HLP-ru-pA2"/>
-                        <outlet property="profileImageView" destination="HlA-ot-FOo" id="2vc-Kp-BaU"/>
+                        <outlet property="profileImageView" destination="HlA-ot-FOo" id="2H0-jz-0bG"/>
                         <segue destination="aP1-j3-q7q" kind="presentation" identifier="logoutSegue" id="gba-DM-COc"/>
                     </connections>
                 </viewController>
@@ -260,9 +260,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zlt-jg-zKI">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zlt-jg-zKI">
                                 <rect key="frame" x="0.0" y="69" width="375" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSc-GN-Q5D">
+                                        <rect key="frame" x="110" y="169" width="154" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Change Profile Picture"/>
+                                        <connections>
+                                            <action selector="onChangeProfilePicture:" destination="CoG-zy-ih1" eventType="touchUpInside" id="Ace-lK-yuZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <gestureRecognizers/>
                             </view>
@@ -284,15 +294,10 @@
                                     <action selector="onDone:" destination="CoG-zy-ih1" eventType="touchUpInside" id="XYZ-mT-AtQ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="OHc-Wi-7JC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="OHc-Wi-7JC" customClass="PFImageView">
                                 <rect key="frame" x="115" y="86" width="145" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5i-8x-UYg">
-                                <rect key="frame" x="110" y="239" width="154" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Profile Picture"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4bT-yx-o2O">
                                 <rect key="frame" x="86" y="298" width="241" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -343,7 +348,7 @@
                     <connections>
                         <outlet property="bioField" destination="tg1-bn-u6c" id="JzF-BP-dmu"/>
                         <outlet property="nameField" destination="4bT-yx-o2O" id="OJr-6C-Sp7"/>
-                        <outlet property="profileImageView" destination="OHc-Wi-7JC" id="3Y4-5l-kIV"/>
+                        <outlet property="profileImageView" destination="OHc-Wi-7JC" id="X45-Kt-w6V"/>
                         <outlet property="usernameField" destination="uSz-f8-fVb" id="SZZ-Ln-rwU"/>
                     </connections>
                 </viewController>

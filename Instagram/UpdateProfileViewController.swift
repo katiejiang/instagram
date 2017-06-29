@@ -8,9 +8,11 @@
 
 import UIKit
 import Parse
+import ParseUI
 
-class UpdateProfileViewController: UIViewController {
-    @IBOutlet weak var profileImageView: UIImageView!
+class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var profileImageView: PFImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var bioField: UITextField!
@@ -31,6 +33,26 @@ class UpdateProfileViewController: UIViewController {
         nameField.text = user["name"] as? String
         usernameField.text = user["username"] as? String
         bioField.text = user["bio"] as? String
+        let profilePicture = user["profilePicture"] as? PFFile
+        profileImageView.file = profilePicture
+        profileImageView.loadInBackground()
+    }
+    
+    @IBAction func onChangeProfilePicture(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerEditedImage] as? UIImage
+        if image != nil {
+            profileImageView.image = image
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func onDone(_ sender: Any) {
@@ -42,6 +64,7 @@ class UpdateProfileViewController: UIViewController {
                     self.user["name"] = self.nameField.text
                     self.user["username"] = self.usernameField.text
                     self.user["bio"] = self.bioField.text
+                    self.user["profilePicture"] = Post.getPFFileFromImage(image: self.profileImageView.image)
                     self.user.saveInBackground()
                     self.dismiss(animated: true, completion: nil)
                 } else {
@@ -57,6 +80,7 @@ class UpdateProfileViewController: UIViewController {
         } else {
             user["name"] = nameField.text
             user["bio"] = bioField.text
+            self.user["profilePicture"] = Post.getPFFileFromImage(image: profileImageView.image)
             user.saveInBackground()
             dismiss(animated: true, completion: nil)
         }
