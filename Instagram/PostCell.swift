@@ -15,6 +15,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var photoImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var profileImageView: PFImageView!
     
     var post: PFObject! {
         didSet {
@@ -23,12 +24,21 @@ class PostCell: UITableViewCell {
             let author = post["author"] as? PFUser
             self.usernameLabel.text = author?["username"] as? String
             self.captionLabel.text = post["caption"] as? String
+            self.profileImageView.file = author?["profilePicture"] as? PFFile
+            self.profileImageView.loadInBackground()
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // Make profile pic circular
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.masksToBounds = false
+        profileImageView.layer.borderColor = UIColor.lightGray.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
