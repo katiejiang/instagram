@@ -86,6 +86,16 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         }
     }
 
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            if let error = error {
+                print(String(describing: error.localizedDescription))
+            } else {
+                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
+            }
+        }
+    }
+    
     @IBAction func onCancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aP1-j3-q7q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aP1-j3-q7q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -101,13 +101,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="503.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFa-h8-jIx">
-                                                    <rect key="frame" x="51" y="17" width="269" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Oi-3OT" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="51" width="375" height="375"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,7 +115,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoK-z5-e8B">
-                                                    <rect key="frame" x="328" y="8" width="35" height="33"/>
+                                                    <rect key="frame" x="328" y="4" width="35" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                                     <state key="normal" title="...">
@@ -148,6 +141,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnN-8j-uZP">
+                                                    <rect key="frame" x="53" y="13" width="120" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Username Button"/>
+                                                    <connections>
+                                                        <segue destination="i1w-mC-g3D" kind="show" identifier="profileSegue" id="ezQ-pd-sWa"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -155,7 +156,7 @@
                                             <outlet property="likesLabel" destination="Mst-vL-3LC" id="8vU-kL-f0w"/>
                                             <outlet property="photoImageView" destination="Dgz-Oi-3OT" id="811-Ro-gq6"/>
                                             <outlet property="profileImageView" destination="4UE-X2-Dix" id="hxZ-dK-Z3a"/>
-                                            <outlet property="usernameLabel" destination="HFa-h8-jIx" id="81K-Tk-5rh"/>
+                                            <outlet property="usernameButton" destination="PnN-8j-uZP" id="2z9-zT-hV0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -222,7 +223,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="photoImageView" destination="8VJ-MP-j65" id="8hI-OF-Ycw"/>
-                                            <segue destination="WTb-6Q-dF7" kind="show" id="2uB-eu-LGO"/>
+                                            <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsSegue" id="2uB-eu-LGO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -246,7 +247,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit Profile"/>
                                 <connections>
-                                    <segue destination="CoG-zy-ih1" kind="presentation" id="y1Z-A1-1YZ"/>
+                                    <segue destination="CoG-zy-ih1" kind="presentation" identifier="updateProfileSegue" id="y1Z-A1-1YZ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcH-8q-Rrg">
@@ -258,21 +259,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Profile" id="v7c-6f-Lg9">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wHl-AC-h91">
-                            <connections>
-                                <action selector="onLogout:" destination="i1w-mC-g3D" id="18P-id-6fv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Profile" id="v7c-6f-Lg9"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bioLabel" destination="Mlz-St-BG9" id="SAj-CT-EuO"/>
                         <outlet property="collectionView" destination="fQ3-f2-ti2" id="xE1-4h-a5M"/>
+                        <outlet property="editProfileButton" destination="bke-yt-ZVO" id="PGI-tn-dXK"/>
                         <outlet property="flowLayout" destination="v5w-HY-j11" id="8Lu-5k-Myr"/>
                         <outlet property="nameLabel" destination="QyG-Kn-xHw" id="HLP-ru-pA2"/>
                         <outlet property="profileImageView" destination="HlA-ot-FOo" id="2H0-jz-0bG"/>
-                        <segue destination="aP1-j3-q7q" kind="presentation" identifier="logoutSegue" id="gba-DM-COc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6I-ig-4N1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -291,13 +286,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MN0-9b-mp9">
-                                <rect key="frame" x="51" y="85" width="269" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="IgV-62-ZiJ" customClass="PFImageView">
                                 <rect key="frame" x="12" y="79" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -332,6 +320,14 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oj9-kb-nSB">
+                                <rect key="frame" x="53" y="80" width="120" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Username Button"/>
+                                <connections>
+                                    <segue destination="i1w-mC-g3D" kind="show" id="R0d-66-EbR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -341,7 +337,7 @@
                         <outlet property="photoImageView" destination="zC2-Bk-IvM" id="4uY-18-Fxn"/>
                         <outlet property="profileImageView" destination="IgV-62-ZiJ" id="hTm-5G-Def"/>
                         <outlet property="timestampLabel" destination="vCn-H3-6Eb" id="LF7-pS-fd4"/>
-                        <outlet property="usernameLabel" destination="MN0-9b-mp9" id="gcz-pw-ezB"/>
+                        <outlet property="usernameButton" destination="oj9-kb-nSB" id="zMv-MW-RQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfs-7C-7NR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,6 +434,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OoX-7t-Gbc">
+                                <rect key="frame" x="156" y="570" width="63" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="CoG-zy-ih1" eventType="touchUpInside" id="L7P-ch-aQO"/>
+                                    <segue destination="aP1-j3-q7q" kind="presentation" id="k47-rw-zBW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -618,4 +624,7 @@
         <image name="profile_placeholder" width="512" height="512"/>
         <image name="username" width="52" height="53"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ezQ-pd-sWa"/>
+    </inferredMetricsTieBreakers>
 </document>

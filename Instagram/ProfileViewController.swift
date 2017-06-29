@@ -12,6 +12,7 @@ import ParseUI
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var profileImageView: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
@@ -39,6 +40,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         // Collection View Layout
         flowLayout.minimumLineSpacing = 6
         flowLayout.minimumInteritemSpacing = 6
+        
+        // Hide edit profile button if not profile doesn't match current user
+        if user != PFUser.current() {
+            editProfileButton.isHidden = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,23 +96,17 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func onLogout(_ sender: Any) {
-        PFUser.logOutInBackground { (error: Error?) in
-            if let error = error {
-                print(String(describing: error.localizedDescription))
-            } else {
-                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-            }
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! PhotoCell
-        let vc = segue.destination as! PostDetailsViewController
-        vc.post = cell.post
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
+        if segue.identifier == nil {
+            return
+        } else if segue.identifier == "detailsSegue" {
+            let cell = sender as! PhotoCell
+            let vc = segue.destination as! PostDetailsViewController
+            vc.post = cell.post
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
     }
 }
