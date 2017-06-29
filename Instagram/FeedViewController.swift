@@ -56,6 +56,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+        cell.usernameButton.tag = indexPath.row
         let post = posts[indexPath.row]
         cell.post = post
         return cell
@@ -72,6 +73,16 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         updatePosts()
         refreshControl.endRefreshing()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "profileSegue" {
+                let vc = segue.destination as! ProfileViewController
+                let button = sender as! UIButton
+                vc.user = posts[button.tag]["author"] as! PFUser
+            }
+        }
     }
     
 }

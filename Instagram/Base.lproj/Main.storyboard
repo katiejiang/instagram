@@ -146,7 +146,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Username Button"/>
                                                     <connections>
-                                                        <segue destination="i1w-mC-g3D" kind="show" id="ezQ-pd-sWa"/>
+                                                        <segue destination="i1w-mC-g3D" kind="show" identifier="profileSegue" id="ezQ-pd-sWa"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -625,6 +625,6 @@
         <image name="username" width="52" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BbB-Ek-MdJ"/>
+        <segue reference="ezQ-pd-sWa"/>
     </inferredMetricsTieBreakers>
 </document>
