@@ -16,6 +16,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var photoImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var profileImageView: PFImageView!
+    @IBOutlet weak var likesLabel: UILabel!
     
     var post: PFObject! {
         didSet {
@@ -26,6 +27,8 @@ class PostCell: UITableViewCell {
             self.captionLabel.text = post["caption"] as? String
             self.profileImageView.file = author?["profilePicture"] as? PFFile
             self.profileImageView.loadInBackground()
+            let likes = post["likesCount"] as! Int
+            self.likesLabel.text = likes > 0 ? "\(String(describing: likes)) likes" : ""
         }
     }
 
