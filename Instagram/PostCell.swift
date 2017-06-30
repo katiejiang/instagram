@@ -12,6 +12,7 @@ import ParseUI
 
 class PostCell: UITableViewCell {
     
+    @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var photoImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!

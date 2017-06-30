@@ -139,6 +139,9 @@
                                                     <state key="normal" title="...">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsFromPostSegue" id="wrQ-MK-O0Y"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoW-vD-heb">
                                                     <rect key="frame" x="15" y="438" width="23" height="23"/>
@@ -174,6 +177,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="p6O-gv-ILj" id="sNn-Xg-Y8w"/>
+                                            <outlet property="detailsButton" destination="zoK-z5-e8B" id="Ktr-BP-3Cw"/>
                                             <outlet property="likesLabel" destination="Mst-vL-3LC" id="8vU-kL-f0w"/>
                                             <outlet property="photoImageView" destination="Dgz-Oi-3OT" id="811-Ro-gq6"/>
                                             <outlet property="profileImageView" destination="4UE-X2-Dix" id="hxZ-dK-Z3a"/>
@@ -244,7 +248,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="photoImageView" destination="8VJ-MP-j65" id="8hI-OF-Ycw"/>
-                                            <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsSegue" id="2uB-eu-LGO"/>
+                                            <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsFromProfileSegue" id="2uB-eu-LGO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -658,5 +662,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R0d-66-EbR"/>
+        <segue reference="2uB-eu-LGO"/>
     </inferredMetricsTieBreakers>
 </document>

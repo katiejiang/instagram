@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == nil {
             return
-        } else if segue.identifier == "detailsSegue" {
+        } else if segue.identifier == "detailsFromProfileSegue" {
             let cell = sender as! PhotoCell
             let vc = segue.destination as! PostDetailsViewController
             vc.post = cell.post
