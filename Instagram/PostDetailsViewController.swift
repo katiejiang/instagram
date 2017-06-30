@@ -18,6 +18,8 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var post: PFObject!
 
@@ -33,7 +35,16 @@ class PostDetailsViewController: UIViewController {
         self.profileImageView.file = author?["profilePicture"] as? PFFile
         self.profileImageView.loadInBackground()
         let likes = post["likesCount"] as! Int
-        self.likesLabel.text = likes > 0 ? "\(String(describing: likes)) likes" : ""
+        self.likesLabel.text = "\(String(describing: likes)) likes"
+        let date = post.createdAt
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        timestampLabel.text = dateFormatter.string(from: date!)
+        
+        if author != PFUser.current() {
+            deleteButton.isHidden = true
+        }
         
         // Make profile pic circular
         profileImageView.layer.borderWidth = 1
@@ -41,6 +52,21 @@ class PostDetailsViewController: UIViewController {
         profileImageView.layer.borderColor = UIColor.lightGray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
+    }
+    
+    @IBAction func onPhotoOptions(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            self.post.deleteInBackground(block: { (success: Bool, error: Error?) in
+                self.activityIndicator.stopAnimating()
+                self.navigationController?.popViewController(animated: true)
+            })
+            self.activityIndicator.startAnimating()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

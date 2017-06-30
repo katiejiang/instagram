@@ -13,6 +13,7 @@ import ParseUI
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var posts : [PFObject] = []
 
@@ -35,6 +36,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updatePosts() {
+        activityIndicator.startAnimating()
         // Construct query
         let query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
@@ -47,6 +49,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let posts = posts {
                 self.posts = posts
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             } else {
                 print(String(describing: error?.localizedDescription))
             }
@@ -61,6 +64,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         cell.usernameButton.tag = indexPath.row
+        cell.detailsButton.tag = indexPath.row
         let post = posts[indexPath.row]
         cell.post = post
         return cell
@@ -85,6 +89,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let vc = segue.destination as! ProfileViewController
                 let button = sender as! UIButton
                 vc.user = posts[button.tag]["author"] as! PFUser
+            } else if identifier == "detailsFromPostSegue" {
+                let vc = segue.destination as! PostDetailsViewController
+                let button = sender as! UIButton
+                vc.post = posts[button.tag]
             }
         }
     }

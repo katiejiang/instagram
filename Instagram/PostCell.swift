@@ -12,6 +12,7 @@ import ParseUI
 
 class PostCell: UITableViewCell {
     
+    @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var photoImageView: PFImageView!
     @IBOutlet weak var captionLabel: UILabel!
@@ -28,13 +29,14 @@ class PostCell: UITableViewCell {
             self.profileImageView.file = author?["profilePicture"] as? PFFile
             self.profileImageView.loadInBackground()
             let likes = post["likesCount"] as! Int
-            self.likesLabel.text = likes > 0 ? "\(String(describing: likes)) likes" : ""
+            self.likesLabel.text = "\(String(describing: likes)) likes"
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
         
         // Make profile pic circular
         profileImageView.layer.borderWidth = 1

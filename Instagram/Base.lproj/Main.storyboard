@@ -112,7 +112,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="504" id="lp7-0W-spN" customClass="PostCell" customModule="Instagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="504" id="lp7-0W-spN" customClass="PostCell" customModule="Instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="504"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lp7-0W-spN" id="fGb-Do-wyQ">
@@ -139,6 +139,9 @@
                                                     <state key="normal" title="...">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsFromPostSegue" id="wrQ-MK-O0Y"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoW-vD-heb">
                                                     <rect key="frame" x="15" y="438" width="23" height="23"/>
@@ -174,6 +177,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="p6O-gv-ILj" id="sNn-Xg-Y8w"/>
+                                            <outlet property="detailsButton" destination="zoK-z5-e8B" id="Ktr-BP-3Cw"/>
                                             <outlet property="likesLabel" destination="Mst-vL-3LC" id="8vU-kL-f0w"/>
                                             <outlet property="photoImageView" destination="Dgz-Oi-3OT" id="811-Ro-gq6"/>
                                             <outlet property="profileImageView" destination="4UE-X2-Dix" id="hxZ-dK-Z3a"/>
@@ -182,6 +186,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RCO-Y5-9ld">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -195,6 +203,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="RCO-Y5-9ld" id="HiK-6b-WFj"/>
                         <outlet property="tableView" destination="7LU-uk-10v" id="o31-Ee-6KZ"/>
                     </connections>
                 </viewController>
@@ -244,19 +253,19 @@
                                         </view>
                                         <connections>
                                             <outlet property="photoImageView" destination="8VJ-MP-j65" id="8hI-OF-Ycw"/>
-                                            <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsSegue" id="2uB-eu-LGO"/>
+                                            <segue destination="WTb-6Q-dF7" kind="show" identifier="detailsFromProfileSegue" id="2uB-eu-LGO"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyG-Kn-xHw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyG-Kn-xHw">
                                 <rect key="frame" x="148" y="97" width="211" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlz-St-BG9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlz-St-BG9">
                                 <rect key="frame" x="148" y="125" width="211" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -331,7 +340,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCn-H3-6Eb">
-                                <rect key="frame" x="16" y="566" width="72" height="21"/>
+                                <rect key="frame" x="16" y="566" width="340" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -353,12 +362,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RM-EM-Wrf">
-                                <rect key="frame" x="324" y="75" width="35" height="33"/>
+                                <rect key="frame" x="326" y="70" width="35" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <state key="normal" title="...">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onPhotoOptions:" destination="WTb-6Q-dF7" eventType="touchUpInside" id="HMo-Y1-At3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fck-9h-w4J">
                                 <rect key="frame" x="164" y="30" width="42" height="21"/>
@@ -367,11 +379,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mN8-dW-7uE">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="mN8-dW-7uE" id="IRd-Ca-6gJ"/>
                         <outlet property="captionLabel" destination="lkJ-zv-98P" id="2tH-rF-zoX"/>
+                        <outlet property="deleteButton" destination="1RM-EM-Wrf" id="ODP-Nr-YIt"/>
                         <outlet property="likesLabel" destination="Z2W-XX-ODm" id="QaN-4d-WiW"/>
                         <outlet property="photoImageView" destination="zC2-Bk-IvM" id="4uY-18-Fxn"/>
                         <outlet property="profileImageView" destination="IgV-62-ZiJ" id="hTm-5G-Def"/>
@@ -381,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfs-7C-7NR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616.8" y="823.53823088455783"/>
+            <point key="canvasLocation" x="1617" y="824"/>
         </scene>
         <!--Update Profile View Controller-->
         <scene sceneID="vLW-gg-smr">
@@ -657,6 +675,7 @@
         <image name="username" width="52" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ezQ-pd-sWa"/>
+        <segue reference="R0d-66-EbR"/>
+        <segue reference="2uB-eu-LGO"/>
     </inferredMetricsTieBreakers>
 </document>
