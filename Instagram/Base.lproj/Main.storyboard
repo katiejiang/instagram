@@ -77,6 +77,24 @@
             </objects>
             <point key="canvasLocation" x="-2094" y="63"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Alm-rt-tBI">
+            <objects>
+                <viewController id="ilz-vG-Rqq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VRv-Yi-wy3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eer-cw-RrB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="haE-5k-tPF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XYr-LZ-8qs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2095.1999999999998" y="823.53823088455783"/>
+        </scene>
         <!--Feed View Controller-->
         <scene sceneID="Xqe-gO-amW">
             <objects>
@@ -462,7 +480,7 @@
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="onLogout:" destination="CoG-zy-ih1" eventType="touchUpInside" id="L7P-ch-aQO"/>
-                                    <segue destination="aP1-j3-q7q" kind="presentation" id="k47-rw-zBW"/>
+                                    <segue destination="aP1-j3-q7q" kind="presentation" identifier="logoutSegue" id="bPb-xL-upv"/>
                                 </connections>
                             </button>
                         </subviews>

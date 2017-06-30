@@ -60,7 +60,7 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
             let vc = UIImagePickerController()
             vc.delegate = self
             vc.allowsEditing = true
-            vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            vc.sourceType = UIImagePickerControllerSourceType.camera
             
             self.present(vc, animated: true, completion: nil)
         }
@@ -115,23 +115,13 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     }
 
     @IBAction func onLogout(_ sender: Any) {
-        let logoutAlert = UIAlertController(title: nil, message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
-        
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (action) in
-            PFUser.logOutInBackground { (error: Error?) in
-                if let error = error {
-                    print(String(describing: error.localizedDescription))
-                } else {
-                    self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-                }
+        PFUser.logOutInBackground { (error: Error?) in
+            if let error = error {
+                print(String(describing: error.localizedDescription))
+            } else {
+                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        logoutAlert.addAction(logoutAction)
-        logoutAlert.addAction(cancelAction)
-        present(logoutAlert, animated: true)
-    
     }
     
     @IBAction func onCancel(_ sender: Any) {
