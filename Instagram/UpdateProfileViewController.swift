@@ -39,11 +39,39 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func onChangeProfilePicture(_ sender: Any) {
+        let selectSourceAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.onLoadCamera(sender)
+        }
+        selectSourceAlert.addAction(cameraAction)
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            self.onLoadPhotoLibrary(sender)
+        }
+        selectSourceAlert.addAction(libraryAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        selectSourceAlert.addAction(cancelAction)
+        present(selectSourceAlert, animated: true)
+    }
+    
+    func onLoadCamera(_ sender: Any) {
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            onLoadPhotoLibrary(sender)
+        } else {
+            let vc = UIImagePickerController()
+            vc.delegate = self
+            vc.allowsEditing = true
+            vc.sourceType = UIImagePickerControllerSourceType.camera
+            
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func onLoadPhotoLibrary(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
-
+        
         self.present(vc, animated: true, completion: nil)
     }
     
