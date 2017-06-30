@@ -331,7 +331,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCn-H3-6Eb">
-                                <rect key="frame" x="16" y="566" width="72" height="21"/>
+                                <rect key="frame" x="16" y="566" width="340" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -657,6 +657,6 @@
         <image name="username" width="52" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ezQ-pd-sWa"/>
+        <segue reference="R0d-66-EbR"/>
     </inferredMetricsTieBreakers>
 </document>
