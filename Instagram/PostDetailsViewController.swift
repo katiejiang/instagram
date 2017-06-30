@@ -34,6 +34,12 @@ class PostDetailsViewController: UIViewController {
         self.profileImageView.loadInBackground()
         let likes = post["likesCount"] as! Int
         self.likesLabel.text = likes > 0 ? "\(String(describing: likes)) likes" : ""
+        let date = post.createdAt
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        timestampLabel.text = dateFormatter.string(from: date!)
+
+//        print(post["_created_at"])
         
         // Make profile pic circular
         profileImageView.layer.borderWidth = 1

@@ -35,6 +35,7 @@ class PostCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
         
         // Make profile pic circular
         profileImageView.layer.borderWidth = 1
