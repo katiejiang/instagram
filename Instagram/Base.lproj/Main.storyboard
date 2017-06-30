@@ -273,9 +273,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bke-yt-ZVO">
-                                <rect key="frame" x="148" y="173" width="75" height="30"/>
+                                <rect key="frame" x="148" y="166" width="211" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit Profile"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Edit Profile">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="CoG-zy-ih1" kind="presentation" identifier="updateProfileSegue" id="y1Z-A1-1YZ"/>
                                 </connections>
@@ -417,8 +420,12 @@
                                 <rect key="frame" x="0.0" y="69" width="375" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="OHc-Wi-7JC" customClass="PFImageView">
+                                        <rect key="frame" x="125" y="26" width="124" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSc-GN-Q5D">
-                                        <rect key="frame" x="110" y="169" width="154" height="30"/>
+                                        <rect key="frame" x="95" y="162" width="184" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Change Profile Picture"/>
                                         <connections>
@@ -447,10 +454,6 @@
                                     <action selector="onDone:" destination="CoG-zy-ih1" eventType="touchUpInside" id="XYZ-mT-AtQ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="OHc-Wi-7JC" customClass="PFImageView">
-                                <rect key="frame" x="115" y="86" width="145" height="145"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4bT-yx-o2O">
                                 <rect key="frame" x="86" y="298" width="241" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -510,6 +513,7 @@
                     </view>
                     <connections>
                         <outlet property="bioField" destination="tg1-bn-u6c" id="JzF-BP-dmu"/>
+                        <outlet property="changeProfilePicture" destination="rSc-GN-Q5D" id="eWq-uP-Hsd"/>
                         <outlet property="nameField" destination="4bT-yx-o2O" id="OJr-6C-Sp7"/>
                         <outlet property="profileImageView" destination="OHc-Wi-7JC" id="X45-Kt-w6V"/>
                         <outlet property="usernameField" destination="uSz-f8-fVb" id="SZZ-Ln-rwU"/>
@@ -522,7 +526,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="737" y="1572"/>
+            <point key="canvasLocation" x="736.79999999999995" y="1571.9640179910045"/>
         </scene>
         <!--New Post View Controller-->
         <scene sceneID="6Y5-Fa-DwF">

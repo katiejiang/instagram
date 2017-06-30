@@ -37,12 +37,15 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
         
+        // Style button
+        editProfileButton.layer.cornerRadius = 5
+        
         // Collection View Layout
         flowLayout.minimumLineSpacing = 6
         flowLayout.minimumInteritemSpacing = 6
         
         // Hide edit profile button if not profile doesn't match current user
-        if user != PFUser.current() {
+        if user.objectId != PFUser.current()!.objectId {
             editProfileButton.isHidden = true
         }
     }

@@ -12,6 +12,7 @@ import ParseUI
 
 class UpdateProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var changeProfilePicture: UIButton!
     @IBOutlet weak var profileImageView: PFImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -28,6 +29,9 @@ class UpdateProfileViewController: UIViewController, UIImagePickerControllerDele
         profileImageView.layer.borderColor = UIColor.lightGray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
         profileImageView.clipsToBounds = true
+        
+        // Change profile picture
+        changeProfilePicture.layer.cornerRadius = 5
         
         // Set default field values
         nameField.text = user["name"] as? String
