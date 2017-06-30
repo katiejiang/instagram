@@ -374,10 +374,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mN8-dW-7uE">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="mN8-dW-7uE" id="IRd-Ca-6gJ"/>
                         <outlet property="captionLabel" destination="lkJ-zv-98P" id="2tH-rF-zoX"/>
                         <outlet property="likesLabel" destination="Z2W-XX-ODm" id="QaN-4d-WiW"/>
                         <outlet property="photoImageView" destination="zC2-Bk-IvM" id="4uY-18-Fxn"/>
@@ -665,6 +670,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R0d-66-EbR"/>
-        <segue reference="2uB-eu-LGO"/>
+        <segue reference="wrQ-MK-O0Y"/>
     </inferredMetricsTieBreakers>
 </document>

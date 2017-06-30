@@ -18,6 +18,7 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var post: PFObject!
 
@@ -51,8 +52,11 @@ class PostDetailsViewController: UIViewController {
     @IBAction func onPhotoOptions(_ sender: Any) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
-            self.post.deleteInBackground()
-            self.navigationController?.popViewController(animated: true)
+            self.post.deleteInBackground(block: { (success: Bool, error: Error?) in
+                self.activityIndicator.stopAnimating()
+                self.navigationController?.popViewController(animated: true)
+            })
+            self.activityIndicator.startAnimating()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
