@@ -384,6 +384,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="mN8-dW-7uE" id="IRd-Ca-6gJ"/>
                         <outlet property="captionLabel" destination="lkJ-zv-98P" id="2tH-rF-zoX"/>
+                        <outlet property="deleteButton" destination="1RM-EM-Wrf" id="ODP-Nr-YIt"/>
                         <outlet property="likesLabel" destination="Z2W-XX-ODm" id="QaN-4d-WiW"/>
                         <outlet property="photoImageView" destination="zC2-Bk-IvM" id="4uY-18-Fxn"/>
                         <outlet property="profileImageView" destination="IgV-62-ZiJ" id="hTm-5G-Def"/>

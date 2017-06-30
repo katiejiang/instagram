@@ -19,6 +19,7 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var post: PFObject!
 
@@ -40,6 +41,10 @@ class PostDetailsViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "MMMM d, yyyy"
         timestampLabel.text = dateFormatter.string(from: date!)
+        
+        if author != PFUser.current() {
+            deleteButton.isHidden = true
+        }
         
         // Make profile pic circular
         profileImageView.layer.borderWidth = 1
