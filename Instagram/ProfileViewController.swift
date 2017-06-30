@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Collection View set up
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -48,7 +48,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // Set navigation controller title to current username
+        updateProfile()
+    }
+    
+    func updateProfile() {
         self.navigationController?.navigationBar.topItem?.title = user.username
         nameLabel.text = user["name"] as? String
         bioLabel.text = user["bio"] as? String

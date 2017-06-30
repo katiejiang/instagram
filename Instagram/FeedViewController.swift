@@ -13,6 +13,7 @@ import ParseUI
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var posts : [PFObject] = []
 
@@ -35,6 +36,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updatePosts() {
+        activityIndicator.startAnimating()
         // Construct query
         let query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
@@ -47,6 +49,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let posts = posts {
                 self.posts = posts
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
             } else {
                 print(String(describing: error?.localizedDescription))
             }
