@@ -51,7 +51,8 @@ class PostDetailsViewController: UIViewController {
     @IBAction func onPhotoOptions(_ sender: Any) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
-            print("delete photo")
+            self.post.deleteInBackground()
+            self.navigationController?.popViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(deleteAction)
